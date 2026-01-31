@@ -300,9 +300,9 @@ const tools = [
           <div className="grid md:grid-cols-2 gap-8">
             {/* Contact Info */}
             <div className="space-y-6">
-              <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+              <div className="bg-white border text-left border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
                 <div className="flex items-center gap-4">
-                  <Mail className="text-blue-600" size={28} />
+                  <Mail className="text-blue-600" size={32} />
                   <div>
                     <p className="font-semibold">Email</p>
                     <p className="text-gray-600">accamamuhammad17@gmail.com</p>
@@ -310,9 +310,9 @@ const tools = [
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+              <div className="bg-white border text-left border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
                 <div className="flex items-center gap-4">
-                  <Phone className="text-blue-600" size={28} />
+                  <Phone className="text-blue-600" size={32} />
                   <div>
                     <p className="font-semibold">WhatsApp</p>
                     <p className="text-gray-600">+234 903 377 3440</p>
@@ -320,9 +320,9 @@ const tools = [
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+              <div className="bg-white border text-left border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
                 <div className="flex items-center gap-4">
-                  <Linkedin className="text-blue-600" size={28} />
+                  <Linkedin className="text-blue-600" size={32} />
                   <div>
                     <p className="font-semibold">LinkedIn</p>
                     <a
