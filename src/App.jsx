@@ -10,6 +10,8 @@ import {
   ChevronDown,
 } from "lucide-react";
 
+import emailjs from "emailjs-com";
+
 import Photo from "../public/passport-photo.jpeg";
 
 const App = () => {
@@ -45,13 +47,34 @@ const App = () => {
     setIsMenuOpen(false);
   };
 
-  const tools = [
-    "Label Studio",
-    "Subtitle Edit",
-    "Google Sheets",
-    "Excel",
-    "Basic QA workflows",
-  ];
+const sendEmail = (e) => {
+  e.preventDefault();
+
+  emailjs
+    .sendForm(
+      "service_z0u8mzq", // Your Service ID
+      "template_qwy1xgk", // Your Template ID
+      e.target,
+      "ShCzbOYFHSPAgpspT", // Your Public Key
+    )
+    .then(
+      () => {
+        alert("Message sent successfully!"); // optional: replace with a nicer UI later
+        e.target.reset();
+      },
+      (error) => {
+        alert("Failed to send message, please try again.");
+        console.error(error);
+      },
+    );
+};
+const tools = [
+  "Label Studio",
+  "Subtitle Edit",
+  "Google Sheets",
+  "Excel",
+  "Basic QA workflows",
+];
 
   const projects = [
     {
@@ -277,40 +300,107 @@ const App = () => {
           <div className="grid md:grid-cols-2 gap-8">
             {/* Contact Info */}
             <div className="space-y-6">
-              <div className="bg-blue-600 text-white rounded-2xl p-6 shadow-lg">
-                <Mail size={28} />
-                <p className="mt-2">accamamuhammad17@gmail.com</p>
+              <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+                <div className="flex items-center gap-4">
+                  <Mail className="text-blue-600" size={28} />
+                  <div>
+                    <p className="font-semibold">Email</p>
+                    <p className="text-gray-600">accamamuhammad17@gmail.com</p>
+                  </div>
+                </div>
               </div>
 
-              <div className="bg-blue-50 text-blue-700 rounded-2xl p-6 shadow-sm">
-                <Phone size={28} />
-                <p className="mt-2">+234 903 377 3440</p>
+              <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+                <div className="flex items-center gap-4">
+                  <Phone className="text-blue-600" size={28} />
+                  <div>
+                    <p className="font-semibold">WhatsApp</p>
+                    <p className="text-gray-600">+234 903 377 3440</p>
+                  </div>
+                </div>
               </div>
 
-              <div className="bg-blue-600 text-white rounded-2xl p-6 shadow-lg">
-                <Linkedin size={28} />
-                <a
-                  href="https://www.linkedin.com/in/muhammad-accama-172b03266"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block mt-2 underline"
-                >
-                  LinkedIn Profile
-                </a>
+              <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+                <div className="flex items-center gap-4">
+                  <Linkedin className="text-blue-600" size={28} />
+                  <div>
+                    <p className="font-semibold">LinkedIn</p>
+                    <a
+                      href="https://www.linkedin.com/in/muhammad-accama-172b03266"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                      View profile
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* CV */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center justify-center">
-              <Download size={48} className="text-blue-600 mb-4" />
-              <h3 className="text-2xl font-bold mb-3">Download My CV</h3>
-              <a
-                href="/mnt/user-data/uploads/AI-Annotation-CV_.pdf"
-                download
-                className="mt-4 px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-semibold"
-              >
-                Download CV
-              </a>
+            {/* CV + Question Form */}
+            <div className="bg-white rounded-2xl shadow-lg p-8 space-y-8">
+              {/* CV */}
+              <div className="text-center">
+                <Download size={40} className="text-blue-600 mx-auto mb-3" />
+                <h3 className="text-2xl font-bold mb-2">Curriculum Vitae</h3>
+                <p className="text-gray-600 mb-4">
+                  A brief overview of my experience, tools, and recent work.
+                </p>
+
+                <a
+                  href="/AI-Annotation-Cv.pdf"
+                  download="Muhammad_Accama_CV.pdf"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-medium"
+                >
+                  <Download size={18} />
+                  View CV
+                </a>
+              </div>
+
+              {/* Divider */}
+              <div className="border-t border-gray-200" />
+
+              {/* Question Form */}
+              <div>
+                <h4 className="text-xl font-semibold mb-2">Have a question?</h4>
+                <p className="text-gray-600 mb-4">
+                  Leave a message and I’ll get back to you by email.
+                </p>
+
+                <form onSubmit={sendEmail} className="space-y-4">
+                  <input
+                    type="text"
+                    name="user_name"
+                    placeholder="Your name"
+                    required
+                    className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+
+                  <input
+                    type="email"
+                    name="user_email"
+                    placeholder="Your email"
+                    required
+                    className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+
+                  <textarea
+                    name="message"
+                    rows="4"
+                    placeholder="Your message"
+                    required
+                    className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+
+                  <button
+                    type="submit"
+                    className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition font-medium"
+                  >
+                    Send message
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
 
