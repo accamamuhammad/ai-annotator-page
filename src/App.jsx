@@ -98,9 +98,9 @@ const tools = [
       details: [
         "~200 text samples",
         "Manual QA and label consistency checks",
-        "Progress tracked in Google Sheets",
+        "Progress tracked in Label studio",
       ],
-      tools: ["Label Studio", "Google Sheets"],
+      tools: ["Label Studio"],
     },
   ];
 
