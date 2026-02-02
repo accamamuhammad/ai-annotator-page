@@ -82,7 +82,7 @@ const tools = [
       description:
         "Transcribed and translated Hausa interview videos into English subtitles, ensuring accurate timing, readability, and cultural context.",
       details: [
-        "Total duration: ~40 minutes",
+        "Number of Interviews: 3 interviews",
         "Files produced: .srt subtitle files",
         "Focus: dialect accuracy, subtitle timing, readability",
       ],
