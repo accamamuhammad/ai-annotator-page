@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+
+import Logo from "../public/logo.png";
+
 import {
   Menu,
   X,
@@ -8,7 +11,9 @@ import {
   Phone,
   Linkedin,
   ChevronDown,
+  Github,
 } from "lucide-react";
+
 
 import emailjs from "emailjs-com";
 
@@ -71,18 +76,23 @@ const sendEmail = (e) => {
 const tools = [
   "Label Studio",
   "Subtitle Edit",
+  "ELAN",
+  "VLC Media Player",
   "Google Sheets",
   "Excel",
   "Basic QA workflows",
+  "JavaScript",
+  "Git & GitHub",
+  "Basics of Python",
 ];
 
   const projects = [
     {
       title: "Hausa → English Subtitle Translation",
       description:
-        "Transcribed and translated Hausa interview videos into English subtitles, ensuring accurate timing, readability, and cultural context.",
+        "Manually Transcribed and translated Hausa interview videos into English subtitles, ensuring accurate timing, readability, and cultural context.",
       details: [
-        "Number of Interviews: 3 interviews",
+        "Number of Interviews: 2 interviews",
         "Files produced: .srt subtitle files",
         "Focus: dialect accuracy, subtitle timing, readability",
       ],
@@ -110,7 +120,7 @@ const tools = [
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm border-b border-gray-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="text-xl font-bold text-blue-600">MA</div>
+            <img src={Logo} alt="Muhammad Accama" className="w-12" />
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-6">
@@ -316,6 +326,23 @@ const tools = [
                   <div>
                     <p className="font-semibold">WhatsApp</p>
                     <p className="text-gray-600">+234 903 377 3440</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white border text-left border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+                <div className="flex items-center gap-4">
+                  <Github className="text-blue-600" size={32} />
+                  <div>
+                    <p className="font-semibold">Github</p>
+                    <a
+                      href="https://github.com/accamamuhammad"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                      View profile
+                    </a>
                   </div>
                 </div>
               </div>
